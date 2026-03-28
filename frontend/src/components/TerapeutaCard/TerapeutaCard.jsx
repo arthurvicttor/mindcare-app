@@ -1,7 +1,7 @@
 import "./TerapeutaCard.css";
 
-function TerapeutaCard({ terapeuta, onEditar, onDeletar }) {
-  const { nome, especialidade, crp, avaliacao, consultas, disponivel, foto } =
+function TerapeutaCard({ terapeuta, onVerPerfil }) {
+  const { nome, especialidade, avaliacao, consultas, disponivel, foto, descricao } =
     terapeuta;
 
   return (
@@ -15,10 +15,10 @@ function TerapeutaCard({ terapeuta, onEditar, onDeletar }) {
         </span>
       </div>
 
-      <div className="t-card-info">
+      <div className="t-card-body">
         <h2 className="t-card-nome">{nome}</h2>
         <p className="t-card-especialidade">{especialidade}</p>
-        <p className="t-card-crp">CRP {crp}</p>
+        <p className="t-card-descricao">{descricao}</p>
 
         <div className="t-card-stats">
           <span>⭐ {avaliacao}</span>
@@ -26,14 +26,9 @@ function TerapeutaCard({ terapeuta, onEditar, onDeletar }) {
         </div>
       </div>
 
-      <div className="t-card-acoes">
-        <button className="btn-editar" onClick={onEditar}>
-          Editar
-        </button>
-        <button className="btn-deletar" onClick={onDeletar}>
-          Remover
-        </button>
-      </div>
+      <button className="t-card-btn" onClick={onVerPerfil } disabled={!disponivel}>
+        {disponivel ? "Ver Perfil" : "Indisponível"}
+      </button>
     </div>
   );
 }

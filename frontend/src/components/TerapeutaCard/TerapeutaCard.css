@@ -1,35 +1,37 @@
+/* Mobile-first */
 .t-card {
   background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.2s;
 }
 
 .t-card:hover {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-.t-card-topo {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.t-card-foto-topo {
+  position: relative;
 }
 
 .t-card-foto {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 100%;
+  height: 180px;
   object-fit: cover;
-  border: 2px solid #d8f3dc;
+  display: block;
 }
 
 .t-card-badge {
-  padding: 0.25rem 0.7rem;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -45,8 +47,16 @@
   color: #c0392b;
 }
 
+.t-card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
 .t-card-nome {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
@@ -54,14 +64,20 @@
 
 .t-card-especialidade {
   font-size: 0.85rem;
-  color: #555;
-  margin: 0.2rem 0;
+  color: #2d6a4f;
+  font-weight: 600;
+  margin: 0;
 }
 
-.t-card-crp {
-  font-size: 0.8rem;
-  color: #888;
+.t-card-descricao {
+  font-size: 0.82rem;
+  color: #666;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
 }
 
 .t-card-stats {
@@ -69,41 +85,32 @@
   gap: 1rem;
   font-size: 0.82rem;
   color: #444;
-  margin-top: 0.25rem;
 }
 
-.t-card-acoes {
-  display: flex;
-  gap: 0.5rem;
+.t-card-btn {
   margin-top: auto;
-}
-
-.btn-editar,
-.btn-deletar {
-  flex: 1;
-  padding: 0.5rem;
+  padding: 0.65rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
-  transition: background 0.15s;
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: #2d6a4f;
+  color: white;
+  transition: background 0.2s;
 }
 
-.btn-editar {
-  background: #e8f4fd;
-  color: #2980b9;
+.t-card-btn:hover:not(:disabled) {
+  background: #1b4332;
 }
 
-.btn-editar:hover {
-  background: #d0eaf8;
+.t-card-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
-.btn-deletar {
-  background: #fde8e8;
-  color: #c0392b;
-}
-
-.btn-deletar:hover {
-  background: #fbd5d5;
+@media (min-width: 600px) {
+  .t-card-foto {
+    height: 200px;
+  }
 }
