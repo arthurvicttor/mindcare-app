@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTerapeutas, deleteTerapeuta } from "../../../services/api";
 import Header from "../../../components/Header/Header";
-import TerapeutaCard from "../../../components/TerapeutaCard/TerapeutaCard";
+import TerapeutaCardAdmin from "../../../components/TerapeutaCardAdmin/TerapeutaCardAdmin";
 import "./TerapeutasList.css";
 
 function TerapeutasList() {
@@ -40,7 +40,7 @@ function TerapeutasList() {
 
       <div className="cards-grid">
         {terapeutas.map((t) => (
-          <TerapeutaCard
+          <TerapeutaCardAdmin
             key={t.id}
             terapeuta={t}
             onEditar={() => navigate(`/terapeutas/editar/${t.id}`)}
