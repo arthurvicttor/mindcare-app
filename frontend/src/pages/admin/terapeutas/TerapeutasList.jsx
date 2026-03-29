@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTerapeutas, deleteTerapeuta } from "../../../services/api";
-import Header from "../../../components/Header/Header";
+import HeaderAdmin from "../../../components/HeaderAdmin/HeaderAdmin";
 import TerapeutaCardAdmin from "../../../components/TerapeutaCardAdmin/TerapeutaCardAdmin";
 import "./TerapeutasList.css";
 
@@ -30,7 +30,7 @@ function TerapeutasList() {
 
   return (
     <div className="lista-container">
-      <Header
+      <HeaderAdmin
         titulo="🧠 MindCare"
         textoBotao="+ Novo Terapeuta"
         onBotaoClick={() => navigate("/terapeutas/novo")}

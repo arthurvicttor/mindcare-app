@@ -1,43 +1,129 @@
+/* --- ESTILOS DO HEADER --- */
 .header {
+  height: 70px;
+  background-color: #007c64;
+  padding: 0 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: white;
-  border-bottom: 2px solid #e0e0e0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  justify-content: space-between;
+  position: relative; /* Necessário para o menu mobile flutuar abaixo dele */
+  z-index: 9999; /* AUMENTADO: Garante que o header fique por cima de tudo */
 }
 
-.header-titulo {
-  font-size: 1.3rem;
-  color: #2d6a4f;
-  margin: 0;
-}
-
-.header-btn {
-  background: #2d6a4f;
-  color: white;
-  border: none;
-  padding: 0.55rem 1rem;
-  border-radius: 8px;
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
-  font-size: 0.88rem;
-  font-weight: 600;
-  white-space: nowrap;
 }
 
-.header-btn:hover {
-  background: #1b4332;
+.logo-text {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
-@media (min-width: 600px) {
-  .header {
-    padding: 1rem 2rem;
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 1001;
+}
+
+/* --- MENU MOBILE (Padrão) --- */
+.nav-links {
+  display: none; /* Escondido por padrão */
+  flex-direction: column;
+  position: absolute;
+  top: 70px; /* Abre logo abaixo da altura do header */
+  left: 0;
+  width: 100%;
+  background-color: #007c64;
+  padding: 20px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  gap: 16px;
+  z-index: 9999; /* ADICIONADO: Garante que a janelinha do menu não seja furada pela pesquisa */
+}
+
+/* Quando clicamos no botão, o React adiciona essa classe! */
+.nav-links.aberto {
+  display: flex;
+  animation: deslizar 0.3s ease-out forwards;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-btn {
+  margin-top: 8px;
+  border: 1px solid #ffffff;
+  padding: 12px !important;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Animação suave pro menu mobile */
+@keyframes deslizar {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MENU DESKTOP (PC / Tablet Maior) --- */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Some com o hambúrguer */
   }
 
-  .header-titulo {
-    font-size: 1.5rem;
+  .nav-links {
+    display: flex; /* Mostra os links */
+    position: static; /* Tira o modo flutuante */
+    flex-direction: row; /* Coloca um lado do outro */
+    background-color: transparent;
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+    align-items: center;
+    gap: 32px;
+    z-index: auto; /* Reseta o z-index no computador */
+  }
+
+  /* Resetando coisas do mobile */
+  .nav-links.aberto {
+    animation: none;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+    padding: 0;
+    border-bottom: none;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover {
+    opacity: 0.8;
+  }
+
+  .login-btn {
+    margin-top: 0;
+    padding: 8px 20px !important;
+    border-radius: 24px;
+    transition: all 0.2s;
+  }
+
+  .login-btn:hover {
+    background-color: #ffffff;
+    color: #007c64 !important;
   }
 }
