@@ -24,6 +24,8 @@ model Terapeuta {
   avaliacao        Float          @default(0)
   consultas        Int            @default(0)
   disponivel       Boolean        @default(true)
+  cidade           String?
+  estado           String?
   diasDisponiveis  String[]
   horarios         String[]
   agendamentos     Agendamento[]
