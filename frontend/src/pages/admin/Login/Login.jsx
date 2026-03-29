@@ -1,26 +1,42 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginAdmin } from "../../../services/api";
 import "./Login.css";
 
 function Login() {
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
+  const [erro, setErro] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Tentando logar no Admin:", { usuario, senha });
-    // Aqui vai a lógica para entrar no painel depois
+    setErro("");
+    setLoading(true);
+
+    const dados = await loginAdmin(usuario, senha);
+
+    if (dados.token) {
+      localStorage.setItem("adminLogado", "true");
+      localStorage.setItem("token", dados.token);
+      navigate("/admin");
+    } else {
+      setErro("Email ou senha inválidos");
+    }
+
+    setLoading(false);
   };
 
   return (
     <div className="admin-login-container">
       <div className="admin-login-card">
-        {/* Título igual ao da foto que você mandou */}
         <h1 className="admin-login-title">Acesso Admin</h1>
         <p className="admin-login-subtitle">Acesso Administrativo Mindcare</p>
 
         <form onSubmit={handleSubmit} className="admin-login-form">
           <div className="input-group">
-            <label htmlFor="usuario">Usuario</label>
+            <label htmlFor="usuario">Usuário</label>
             <input
               type="text"
               id="usuario"
@@ -43,9 +59,10 @@ function Login() {
             />
           </div>
 
-          {/* Botão igual ao da foto, mas com a cor da Mindcare */}
-          <button type="submit" className="admin-login-btn">
-            LOG IN
+          {erro && <p className="login-erro">{erro}</p>}
+
+          <button type="submit" className="admin-login-btn" disabled={loading}>
+            {loading ? "Entrando..." : "Entrar"}
           </button>
         </form>
       </div>

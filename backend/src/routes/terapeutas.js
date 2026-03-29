@@ -5,12 +5,11 @@ const authMiddleware = require('../middlewares/authMiddleware')
 const router = express.Router()
 const prisma = new PrismaClient()
 
-// Validação dos campos do terapeuta
 function validarTerapeuta(dados) {
-  const { nome, especialidade, crp, descricao } = dados
+  const { nome, especialidade, crp, descricao, cidade, estado } = dados
 
-  if (!nome || !especialidade || !crp || !descricao) {
-    return 'Nome, especialidade, CRP e descrição são obrigatórios'
+  if (!nome || !especialidade || !crp || !descricao || !cidade || !estado) {
+    return 'Todos os campos são obrigatórios'
   }
 
   if (nome.trim().length < 3) {

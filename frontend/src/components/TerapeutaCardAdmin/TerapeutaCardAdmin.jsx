@@ -20,11 +20,7 @@ function TerapeutaCardAdmin({ terapeuta, onEditar, onDeletar }) {
           <h2 className="ta-card-nome">{nome}</h2>
           <p className="ta-card-crp">CRP: {crp}</p>
           <p className="ta-card-especialidade">{especialidade}</p>
-          <span
-            className={`t-card-badge ${disponivel ? "disponivel" : "indisponivel"}`}
-          >
-            {disponivel ? "Disponível" : "Indisponível"}
-          </span>
+          
         </div>
       </div>
       <div className="ta-card-middle">
