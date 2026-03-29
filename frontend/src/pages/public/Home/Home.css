@@ -1,55 +1,218 @@
-/* Mobile-first */
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================== */
 .home {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #ffffff;
   min-height: 100vh;
-  background: #f5f7f5;
-  font-family: "Segoe UI", sans-serif;
 }
 
+/* =========================================
+   1. HEADER RESPONSIVO (Mindcare)
+========================================== */
 .home-header {
-  background: white;
-  padding: 1rem;
-  border-bottom: 1px solid #e0e0e0;
+  height: 70px;
+  background-color: #007c64; /* Verde contínuo com o hero */
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espalha logo pra esquerda e menu pra direita */
+  position: relative;
 }
 
-.home-header h1 {
-  font-size: 1.3rem;
-  color: #2d6a4f;
-  margin: 0;
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
+.logo-text {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Esconde links de texto no celular por padrão */
+.nav-links {
+  display: none; 
+}
+
+/* Mostra o Botão Hambúrguer no Celular */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* --- REGRAS PARA COMPUTADOR / TABLET (Menu) --- */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Esconde o botão hambúrguer no PC */
+  }
+
+  .nav-links {
+    display: flex; /* Mostra os links de texto no PC */
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .nav-links a:hover {
+    opacity: 0.8;
+  }
+
+  .login-btn {
+    border: 1px solid #ffffff;
+    padding: 8px 20px;
+    border-radius: 24px;
+    transition: all 0.2s;
+  }
+
+  .login-btn:hover {
+    background-color: #ffffff;
+    color: #007c64 !important;
+  }
+}
+
+/* =========================================
+   2. SEÇÃO HERO E CARD DE PESQUISA
+========================================== */
 .home-hero {
-  background: #2d6a4f;
-  padding: 2rem 1rem;
-  color: white;
+  background-color: #007c64;
+  padding: 20px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
   text-align: center;
 }
 
-.home-hero h2 {
-  font-size: 1.6rem;
-  margin: 0 0 0.5rem;
+.hero-subtitle {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 0 32px 0;
+  max-width: 360px;
+  line-height: 1.4;
 }
 
-.home-hero p {
-  font-size: 0.95rem;
-  margin: 0;
-  opacity: 0.85;
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
+.search-card {
+  background-color: #f6f5f1;
+  border-radius: 16px;
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field::placeholder {
+  color: #777;
+}
+
+.input-field:focus {
+  border-color: #007c64;
+}
+
+.input-icon {
+  position: absolute;
+  right: 16px;
+  color: #888;
+  pointer-events: none;
+}
+
+.search-button {
+  background-color: #007c64;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #006652;
+}
+
+/* =========================================
+   3. LISTA DE TERAPEUTAS
+========================================== */
 .home-lista {
-  padding: 1rem;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .home-loading,
 .home-vazio {
   text-align: center;
-  color: #888;
-  padding: 2rem 0;
+  font-size: 18px;
+  color: #666;
+  padding: 40px 0;
 }
 
+/* O Grid resolvido: deixei sua versão com media queries que dá mais controle! */
 .home-grid {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 /* Tablet */
