@@ -1,23 +1,20 @@
-/* =========================================
-   TELA DE LOGIN (Mobile First)
-========================================== */
 .admin-login-container {
   font-family: system-ui, -apple-system, sans-serif;
-  background-color: #007c64; /* Fundo verde padrão da Mindcare */
+  background-color: #007c64; 
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centraliza o card bem no meio da tela */
+  align-items: center; 
   padding: 20px;
   box-sizing: border-box;
 }
 
 .admin-login-card {
-  background-color: #f6f5f1; /* Card bege clarinho da home */
-  border-radius: 16px; /* Bordas arredondadas */
+  background-color: #f6f5f1; 
+  border-radius: 16px; 
   padding: 40px 24px;
   width: 100%;
-  max-width: 400px; /* Não deixa o card gigante no computador */
+  max-width: 400px; 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -36,7 +33,7 @@
   color: #666;
   font-size: 14px;
   text-align: center;
-  margin: -16px 0 0 0; /* Puxa o subtítulo pra mais perto do título */
+  margin: -16px 0 0 0; 
 }
 
 .admin-login-form {
@@ -75,14 +72,14 @@
 }
 
 .input-group input:focus {
-  border-color: #007c64; /* Borda fica verde ao clicar */
+  border-color: #007c64; 
 }
 
 .admin-login-btn {
-  background-color: #007c64; /* Verde Mindcare */
+  background-color: #007c64; 
   color: white;
   border: none;
-  border-radius: 24px; /* Botão bem arredondado como na imagem e na home */
+  border-radius: 24px; 
   padding: 16px;
   font-size: 16px;
   font-weight: 700;
@@ -94,5 +91,14 @@
 }
 
 .admin-login-btn:hover {
-  background-color: #006652; /* Fica mais escuro ao passar o mouse */
+  background-color: #006652; 
+}
+
+.login-erro {
+  background: #fde8e8;
+  color: #c0392b;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin: 0;
 }

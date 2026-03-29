@@ -1,62 +1,56 @@
-/* Mobile-first */
 .t-card {
   background: white;
-  border-radius: 16px;
-  overflow: hidden;
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-.t-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+.t-card-topo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.t-card-foto-topo {
+.t-card-foto-wrapper {
   position: relative;
+  flex-shrink: 0;
 }
 
 .t-card-foto {
-  width: 100%;
-  height: 180px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
   object-fit: cover;
   display: block;
 }
 
-.t-card-badge {
+.t-card-check {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  bottom: 2px;
+  right: 2px;
+  background: #2d6a4f;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
 }
 
-.disponivel {
-  background: #d8f3dc;
-  color: #2d6a4f;
-}
-
-.indisponivel {
-  background: #fde8e8;
-  color: #c0392b;
-}
-
-.t-card-body {
-  padding: 1rem;
+.t-card-info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  flex: 1;
+  gap: 0.25rem;
 }
 
 .t-card-nome {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0;
@@ -64,53 +58,63 @@
 
 .t-card-especialidade {
   font-size: 0.85rem;
-  color: #2d6a4f;
-  font-weight: 600;
+  color: #666;
   margin: 0;
 }
 
 .t-card-descricao {
-  font-size: 0.82rem;
-  color: #666;
+  font-size: 0.8rem;
+  color: #888;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
-.t-card-stats {
+.t-card-avaliacao {
   display: flex;
-  gap: 1rem;
-  font-size: 0.82rem;
-  color: #444;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #2d6a4f;
+}
+
+.t-card-opinoes {
+  font-size: 0.78rem;
+  color: #888;
+}
+
+.t-card-rodape {
+  border-top: 1px solid #f0f0f0;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .t-card-btn {
-  margin-top: auto;
-  padding: 0.65rem;
+  background: none;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.88rem;
+  color: #2d6a4f;
+  font-size: 0.9rem;
   font-weight: 700;
-  background: #2d6a4f;
-  color: white;
-  transition: background 0.2s;
+  cursor: pointer;
+  padding: 0;
 }
 
 .t-card-btn:hover:not(:disabled) {
-  background: #1b4332;
+  text-decoration: underline;
 }
 
 .t-card-btn:disabled {
-  background: #ccc;
+  color: #ccc;
   cursor: not-allowed;
 }
 
 @media (min-width: 600px) {
   .t-card-foto {
-    height: 200px;
+    width: 90px;
+    height: 90px;
   }
 }

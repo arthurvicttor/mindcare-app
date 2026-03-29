@@ -24,7 +24,7 @@ function AppRoutes() {
 
       {/* Rotas protegidas para admin */}
       <Route path="/admin" element={<AdminRoute />}>
-        <Route path="terapeutas" element={<TerapeutasList />} />
+        <Route index element={<TerapeutasList />} />
         <Route path="terapeutas/novo" element={<TerapeutaForm />} />
         <Route path="terapeutas/editar/:id" element={<TerapeutaForm />} />
       </Route>
