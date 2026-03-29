@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = "http://localhost:3000/api";
 
 export async function getTerapeutas() {
   const response = await fetch(`${BASE_URL}/terapeutas`);
