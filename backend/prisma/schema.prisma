@@ -17,6 +17,7 @@ model Admin {
 model Terapeuta {
   id               Int            @id @default(autoincrement())
   nome             String
+  slug             String        @unique
   especialidade    String
   crp              String         @unique
   descricao        String
