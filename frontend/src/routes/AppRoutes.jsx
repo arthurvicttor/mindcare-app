@@ -17,7 +17,7 @@ function AppRoutes() {
     <Routes>
       {/* Rotas públicas */}
       <Route path="/" element={<Home />} />
-      <Route path="/terapeutas/:id" element={<TerapeutaDetalhe />} />
+      <Route path="/terapeuta/:slug" element={<TerapeutaDetalhe />} />
 
       {/* Login de admin */}
       <Route path="/admin/login" element={<Login />} />
