@@ -71,3 +71,20 @@ export async function getCidadesPorEstado(uf) {
   );
   return response.json();
 }
+
+// Agendamentos
+export async function getAgendamentosPorTerapeuta(terapeutaId) {
+  const response = await fetch(
+    `${BASE_URL}/agendamentos/terapeuta/${terapeutaId}`,
+  );
+  return response.json();
+}
+
+export async function createAgendamento(dados) {
+  const response = await fetch(`${BASE_URL}/agendamentos`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dados),
+  });
+  return response.json();
+}
