@@ -54,7 +54,7 @@ function TerapeutaDetalhe() {
   const [horarioSelecionado, setHorarioSelecionado] = useState(null)
   const [etapa, setEtapa] = useState('calendario') // calendario | formulario | sucesso
 
-  const [form, setForm] = useState({ nome: '', celular: '' })
+  const [form, setForm] = useState({ nome: '', celular: '', motivo: '' })
   const [erro, setErro] = useState('')
   const [enviando, setEnviando] = useState(false)
 
@@ -98,7 +98,7 @@ function TerapeutaDetalhe() {
     const resposta = await createAgendamento({
       nome: form.nome,
       celular: form.celular,
-      motivo: '',
+      motivo: form.motivo,
       data: formatarDataISO(diaSelecionado),
       horario: horarioSelecionado,
       terapeutaId: terapeuta.id
@@ -224,6 +224,17 @@ function TerapeutaDetalhe() {
                 placeholder="11999999999"
                 value={form.celular}
                 onChange={e => setForm(prev => ({ ...prev, celular: e.target.value }))}
+                required
+              />
+            </div>
+
+            <div className="td-campo">
+              <label>Motivo da consulta</label>
+              <textarea
+                placeholder="Descreva brevemente o motivo..."
+                value={form.motivo}
+                onChange={e => setForm(prev => ({ ...prev, motivo: e.target.value }))}
+                rows={3}
                 required
               />
             </div>
