@@ -111,15 +111,24 @@ router.put("/:id", authMiddleware, async (req, res) => {
 });
 
 // DELETE — protegido (admin)
-router.delete("/:id", authMiddleware, async (req, res) => {
+router.delete('/:id', authMiddleware, async (req, res) => {
   try {
+    const id = Number(req.params.id)
+
+    // Deleta os agendamentos do terapeuta primeiro
+    await prisma.agendamento.deleteMany({
+      where: { terapeutaId: id }
+    })
+
+    // Depois deleta o terapeuta
     await prisma.terapeuta.delete({
-      where: { id: Number(req.params.id) },
-    });
-    res.json({ message: "Terapeuta removido com sucesso" });
-  } catch {
-    res.status(500).json({ message: "Erro ao remover terapeuta" });
+      where: { id }
+    })
+
+    res.json({ message: 'Terapeuta removido com sucesso' })
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao remover terapeuta' })
   }
-});
+})
 
 module.exports = router;
