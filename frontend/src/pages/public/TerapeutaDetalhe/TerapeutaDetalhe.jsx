@@ -408,12 +408,20 @@ function TerapeutaDetalhe() {
                       </span>
                     </span>
                   </p>
+
                   <div className="td-mapa-placeholder">
-                    <p>
-                      {" "}
-                      <Map size={20} /> Mapa disponível em breve
-                    </p>
+                    <MapPin size={24} color="#888" />
+                    <p>Mapa em breve</p>
                   </div>
+
+                  <a
+                    className="td-mapa-link"
+                    href={`https://www.google.com/maps/search/${terapeuta.cidade},${terapeuta.estado},Brasil`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ver no Google Maps
+                  </a>
                 </div>
               ) : (
                 <p className="td-vazio">Localização não informada.</p>
