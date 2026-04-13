@@ -7,6 +7,8 @@ import {
 } from "../../../services/api";
 import TerapeutaCard from "../../../components/TerapeutaCard/TerapeutaCard";
 import "./Home.css";
+import Header from "../../../components/Header/Header";
+import Footer from "../../../components/Footer/Footer";
 
 function Home() {
   const [terapeutas, setTerapeutas] = useState([]);
@@ -81,46 +83,7 @@ function Home() {
 
   return (
     <div className="home">
-      <header className="home-header">
-        <div className="logo-section">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path
-              d="M12 2L15 9H22L16 14L18 21L12 17L6 21L8 14L2 9H9L12 2Z"
-              fill="white"
-            />
-          </svg>
-          <span className="logo-text">Mindcare</span>
-        </div>
-
-        <nav className={`nav-links ${menuAberto ? "aberto" : ""}`}>
-          <a href="#especialistas">Especialistas</a>
-          <a href="#teleconsulta">Teleconsulta</a>
-          <a href="#clinicas">Clínicas</a>
-          <a href="#login" className="login-btn">
-            Entrar
-          </a>
-        </nav>
-
-        <button
-          className="menu-toggle"
-          onClick={() => setMenuAberto(!menuAberto)}
-        >
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-      </header>
+      <Header menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
 
       <section className="home-hero">
         <h1 className="hero-title">
@@ -200,6 +163,7 @@ function Home() {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
