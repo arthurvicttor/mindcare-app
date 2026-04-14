@@ -1,4 +1,3 @@
-/* --- ESTILOS DO HEADER --- */
 .header {
   height: 70px;
   background-color: #007c64;
@@ -6,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative; /* Necessário para o menu mobile flutuar abaixo dele */
-  z-index: 9999; /* AUMENTADO: Garante que o header fique por cima de tudo */
+  position: relative;
+  z-index: 9999;
 }
 
 .logo-section {
@@ -15,6 +14,10 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+}
+
+.logo-section img{
+  width: 70px;
 }
 
 .logo-text {
@@ -35,12 +38,12 @@
   z-index: 1001;
 }
 
-/* --- MENU MOBILE (Padrão) --- */
+/* --- MENU MOBILE --- */
 .nav-links {
-  display: none; /* Escondido por padrão */
+  display: none; 
   flex-direction: column;
   position: absolute;
-  top: 70px; /* Abre logo abaixo da altura do header */
+  top: 70px; 
   left: 0;
   width: 100%;
   background-color: #007c64;
@@ -48,10 +51,9 @@
   box-sizing: border-box;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   gap: 16px;
-  z-index: 9999; /* ADICIONADO: Garante que a janelinha do menu não seja furada pela pesquisa */
+  z-index: 9999; /
 }
 
-/* Quando clicamos no botão, o React adiciona essa classe! */
 .nav-links.aberto {
   display: flex;
   animation: deslizar 0.3s ease-out forwards;
@@ -74,32 +76,36 @@
   text-align: center;
 }
 
-/* Animação suave pro menu mobile */
 @keyframes deslizar {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* --- MENU DESKTOP (PC / Tablet Maior) --- */
+/* --- MENU DESKTOP --- */
 @media (min-width: 768px) {
   .menu-toggle {
-    display: none; /* Some com o hambúrguer */
+    display: none; 
   }
 
   .nav-links {
-    display: flex; /* Mostra os links */
-    position: static; /* Tira o modo flutuante */
-    flex-direction: row; /* Coloca um lado do outro */
+    display: flex; 
+    position: static; 
+    flex-direction: row; 
     background-color: transparent;
     width: auto;
     padding: 0;
     box-shadow: none;
     align-items: center;
     gap: 32px;
-    z-index: auto; /* Reseta o z-index no computador */
+    z-index: auto; 
   }
 
-  /* Resetando coisas do mobile */
   .nav-links.aberto {
     animation: none;
   }
