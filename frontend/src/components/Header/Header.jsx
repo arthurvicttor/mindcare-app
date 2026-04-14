@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../../assets/img/logo.png";
 import "./Header.css";
 
 function Header() {
@@ -11,11 +12,7 @@ function Header() {
   return (
     <header className="header">
       <div className="logo-section">
-        <img
-          src="frontend\src\img\logo.png"
-          alt="Logo Mindcare"
-          className="logo-image"
-        />
+        <img src={logo} alt="Logo Mindcare" className="logo-image" />
         <span className="logo-text">Mindcare</span>
       </div>
 
