@@ -104,6 +104,9 @@ function TerapeutaDetalhe() {
     if (terapeuta) {
       document.title = `${terapeuta.nome} | MindCare`;
     }
+    return () => {
+      document.title = "MindCare";
+    };
   }, [terapeuta]);
 
   function horarioOcupado(data, horario) {
