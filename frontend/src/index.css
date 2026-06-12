@@ -1,4 +1,3 @@
-/* Reseta as margens padrão do navegador para todos os elementos */
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +7,5 @@
 body {
   margin: 0;
   padding: 0;
-  /* Se você tiver uma cor de fundo padrão pro site inteiro, pode colocar aqui */
   background-color: #ffffff;
 }

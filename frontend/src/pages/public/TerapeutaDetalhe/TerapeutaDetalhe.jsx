@@ -100,6 +100,12 @@ function TerapeutaDetalhe() {
     carregar();
   }, [slug]);
 
+  useEffect(() => {
+    if (terapeuta) {
+      document.title = `${terapeuta.nome} | MindCare`;
+    }
+  }, [terapeuta]);
+
   function horarioOcupado(data, horario) {
     const dataISO = formatarDataISO(data);
     return agendados.some((a) => a.data === dataISO && a.horario === horario);

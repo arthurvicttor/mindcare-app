@@ -38,7 +38,6 @@
   z-index: 1001;
 }
 
-/* --- MENU MOBILE --- */
 .nav-links {
   display: none; 
   flex-direction: column;
@@ -87,7 +86,6 @@
   }
 }
 
-/* --- MENU DESKTOP --- */
 @media (min-width: 768px) {
   .menu-toggle {
     display: none; 

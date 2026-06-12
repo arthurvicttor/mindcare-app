@@ -1,22 +1,19 @@
-/* =========================================
-   CONFIGURAÇÕES GERAIS
-========================================== */
 .home {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   background-color: #ffffff;
   min-height: 100vh;
 }
 
-/* =========================================
-   1. HEADER RESPONSIVO (Mindcare)
-========================================== */
 .home-header {
   height: 70px;
-  background-color: #007c64; /* Verde contínuo com o hero */
+  background-color: #007c64;
   padding: 0 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Espalha logo pra esquerda e menu pra direita */
+  justify-content: space-between;
   position: relative;
 }
 
@@ -34,12 +31,10 @@
   letter-spacing: -0.5px;
 }
 
-/* Esconde links de texto no celular por padrão */
 .nav-links {
-  display: none; 
+  display: none;
 }
 
-/* Mostra o Botão Hambúrguer no Celular */
 .menu-toggle {
   background: none;
   border: none;
@@ -50,14 +45,13 @@
   padding: 0;
 }
 
-/* --- REGRAS PARA COMPUTADOR / TABLET (Menu) --- */
 @media (min-width: 768px) {
   .menu-toggle {
-    display: none; /* Esconde o botão hambúrguer no PC */
+    display: none;
   }
 
   .nav-links {
-    display: flex; /* Mostra os links de texto no PC */
+    display: flex;
     align-items: center;
     gap: 32px;
   }
